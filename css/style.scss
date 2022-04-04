@@ -1,104 +1,127 @@
 // common
-*{
+* {
   margin: 0;
   padding: 0;
 }
+
 // variable
 $color-bk: black;
 $color-fff: #fff;
 $color-c4: #c4c4c4;
+$color-d6: #d6d6d6;
 $color-gray: gray;
 $border-bk: 1px solid black;
 $border-red: 1px solid red;
 $center: center;
 $per100: 100%;
+
 // class-set
-@mixin border($px, $color){
+@mixin border($px, $color) {
   border: $px solid $color;
 }
+
 @mixin flex-align-justify($align, $justify) {
   display: flex;
   align-items: $align;
   justify-content: $justify;
 }
+
 // style
 // mobile
-.root{
+.root {
   width: 100vw;
   height: 410vh;
   overflow: hidden;
-  .container{
+
+  .container {
     width: inherit;
     height: inherit;
-    header{
+
+    header {
       width: inherit;
       height: 10vh;
       @include flex-align-justify($center, flex-start);
-      >div:nth-child(2){
+
+      >div:nth-child(2) {
         width: $per100;
         text-align: $center;
+        font-size: 3em;
+        font-weight: 900;
+        letter-spacing: -1vw;
       }
     }
-    main{
-      >div:nth-child(1){
+
+    main {
+      >div:nth-child(1) {
         width: inherit;
         height: 180vh;
+
         // con-1
-        >div:nth-child(1){
+        >div:nth-child(1) {
           width: inherit;
           height: 70vh;
           @include flex-align-justify($center, $center);
           flex-direction: column;
-            >ul{
+
+          >ul {
+            width: 100vw;
+            height: 60vh;
+            overflow: hidden;
+
+            >li {
               width: 100vw;
-              height: 60vh;
-              overflow: hidden;
-              >li{
-                width: 100vw;
-                height: $per100;
-                list-style-type: none;
-              }
+              height: $per100;
+              list-style-type: none;
+              background-color: $color-d6;
             }
-            >div:nth-child(2){
-              width: 100vw;
-              height: 10vh;
-              background-color: $color-c4;
-              @include flex-align-justify($center, $center);
-            }
+          }
+
+          >div:nth-child(2) {
+            width: 100vw;
+            height: 10vh;
+            background-color: $color-c4;
+            @include flex-align-justify($center, $center);
+          }
         }
-        >div:nth-child(2){
+
+        >div:nth-child(2) {
           width: inherit;
           height: 110vh;
           border: $border-bk;
           @include flex-align-justify($center, space-between);
           flex-direction: column;
-          >div:nth-child(1){
+
+          >div:nth-child(1) {
             text-align: center;
             height: 10vh;
           }
-          >div:nth-child(2){
-            >div{
-              >div{
+
+          >div:nth-child(2) {
+            >div {
+              >div {
                 width: 100vw;
                 height: 20vh;
                 @include flex-align-justify($center, space-between);
                 row-gap: 10vh;
-                >div:nth-child(1){
+
+                >div:nth-child(1) {
                   width: 30%;
                   height: $per100;
                   background-color: $color-gray;
                   border: $border-bk;
                 }
-                >div:nth-child(2){
+
+                >div:nth-child(2) {
                   width: 65%;
                   height: $per100;
                   @include flex-align-justify(flex-start, $center);
-                    flex-direction: column;
+                  flex-direction: column;
                 }
               }
             }
           }
-          >div:nth-child(3){
+
+          >div:nth-child(3) {
             width: 90%;
             height: 10vh;
             text-align: center;
@@ -107,25 +130,29 @@ $per100: 100%;
           }
         }
       }
-      >div:nth-child(2){
+
+      >div:nth-child(2) {
         width: 100vw;
         height: 100vh;
         @include flex-align-justify($center, flex-start);
         flex-direction: column;
-        >div:nth-child(2){
+
+        >div:nth-child(2) {
           width: inherit;
           height: inherit;
-          >div{
+
+          >div {
             width: inherit;
             height: 30vh;
             background-color: $color-c4;
 
-            >div:nth-child(1){
+            >div:nth-child(1) {
               width: inherit;
               height: 80%;
               border: $border-bk;
             }
-            >div:nth-child(2){
+
+            >div:nth-child(2) {
               width: inherit;
               height: 20%;
               @include flex-align-justify($center, $center);
@@ -134,66 +161,82 @@ $per100: 100%;
           }
         }
       }
-      >div:nth-child(3){
+
+      >div:nth-child(3) {
         width: 100vw;
         height: 100vh;
         @include flex-align-justify($center, $center);
-        >div:nth-child(1){
+
+        >div:nth-child(1) {
           width: inherit;
           height: 5vh;
           background-color: $color-fff;
         }
-        >div:nth-child(2){
-          >div{
+
+        >div:nth-child(2) {
+          >div {
             width: inherit;
             height: 20vh;
             background-color: $color-bk;
           }
         }
       }
-      
-      }
-      footer{
-        width: inherit;
-        height: 20vh;
-        @include flex-align-justify($center, $center);
-        flex-direction: column;
-        background-color: $color-bk;
-        position: relative;
-        top: 100vh;
-        div{
-          width: inherit;
-          text-align: center;
-          color: $color-fff;
-          // border: $border-red;
-          >i{
-            width: 30px;
-            height: 30px;
-          }
-        }
-        >div:nth-child(1){
-          font-size: 3em;
-        }
-        >div:nth-child(3){
-          @include flex-align-justify($center, $center);
-          >div{
-            width: 30vw;
-          }
-        }
-        >div:nth-child(4){
-          @include flex-align-justify($center, flex-end);
-          >div{
-            width: 5vw;
-            height: 5vw;
-            border-radius: $per100;
-            @include border(3px, #fff);
-            @include flex-align-justify($center, $center);
-            >i{
-              position: relative;
-              top: 0.7vh;
-            }
-          }
-        }
+
     }
+
+    footer {
+      width: inherit;
+      height: 20vh;
+      @include flex-align-justify($center, $center);
+      flex-direction: column;
+      background-color: $color-bk;
+      position: relative;
+      top: 100vh;
+
+      div {
+        width: inherit;
+        text-align: center;
+        color: $color-fff;
+
+        // border: $border-red;
+        >i {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      >div:nth-child(1) {
+        font-size: 3em;
+        font-weight: 900;
+        letter-spacing: -1vw;
+      }
+
+      >div:nth-child(3) {
+        @include flex-align-justify($center, $center);
+
+        >div {
+          width: 30vw;
+        }
+      }
+
+      >div:nth-child(4) {
+        @include flex-align-justify($center, flex-end);
+
+        >div {
+          width: 5vw;
+          height: 5vw;
+          border-radius: $per100;
+          @include border(3px, #fff);
+          @include flex-align-justify($center, $center);
+          position: relative;
+          right: 2vw;
+
+          >i {
+            position: relative;
+            top: 0.7vh;
+          }
+        }
+      }
     }
   }
+}
